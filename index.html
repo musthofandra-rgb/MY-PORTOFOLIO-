@@ -11,6 +11,26 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* Custom 3D Card & Floating Effects */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .gear-3d-card {
+      transform-style: preserve-3d;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .gear-3d-card:hover {
+      transform: translateY(-10px) rotateX(4deg) rotateY(-2deg) scale(1.02);
+      box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.25), 0 0 20px 0 rgba(99, 102, 241, 0.15);
+    }
+    .gear-img-3d {
+      transition: transform 0.5s ease;
+      transform: translateZ(20px);
+    }
+    .gear-3d-card:hover .gear-img-3d {
+      transform: translateZ(40px) scale(1.06);
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
@@ -24,7 +44,8 @@
       <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
         <a href="#tentang" class="hover:text-blue-400 transition">Tentang</a>
         <a href="#video" class="hover:text-blue-400 transition">Video Wedding</a>
-        <a href="#fotografi" class="hover:text-blue-400 transition">Fotografi Karya</a>
+        <a href="#fotografi" class="hover:text-blue-400 transition">Fotografi</a>
+        <a href="#gear" class="hover:text-blue-400 transition">Equipment & Gear</a>
         <a href="#keahlian" class="hover:text-blue-400 transition">Keahlian</a>
         <a href="#kontak" class="hover:text-blue-400 transition">Kontak</a>
       </div>
@@ -42,7 +63,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Foto Profil Utama (dengan ID untuk Efek Blur) -->
+        <!-- Foto Profil Utama (dengan Efek Scroll Blur) -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
@@ -107,6 +128,12 @@
           <h2 class="text-3xl font-bold text-white">Video & Film Sinematik</h2>
           <p class="text-slate-400 text-sm mt-2">Hasil karya videografi, penyuntingan video, dan dokumentasi acara.</p>
         </div>
+
+        <!-- Tombol Google Drive Video -->
+        <a href="https://drive.google.com/drive/folders/1HV2DxTQAVLrOJ1yDxLjzqS0ioAecpLu0?usp=sharing" target="_blank" 
+           class="mt-4 md:mt-0 inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/20 transition">
+          <i class="fa-brands fa-google-drive text-amber-400 text-base"></i> Google Drive Portofolio Video
+        </a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -142,9 +169,17 @@
   <section id="fotografi" class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="mb-12">
-        <h2 class="text-3xl font-bold text-white">Fotografi & Photo Editing</h2>
-        <p class="text-slate-400 text-sm mt-2">Hasil pemotretan profesional, retouching foto, dan koreksi warna tingkat lanjut.</p>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white">Fotografi & Photo Editing</h2>
+          <p class="text-slate-400 text-sm mt-2">Hasil pemotretan profesional, retouching foto, dan koreksi warna tingkat lanjut.</p>
+        </div>
+
+        <!-- Tombol Google Drive Foto -->
+        <a href="https://drive.google.com/drive/folders/1LkgSYtiw_Ki0eVkuzXZeYQe7SZWVtXiE?usp=sharing" target="_blank" 
+           class="mt-4 md:mt-0 inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+          <i class="fa-brands fa-google-drive text-amber-300 text-base"></i> Google Drive Portofolio Foto
+        </a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -161,11 +196,111 @@
         </div>
 
       </div>
+
+    </div>
+  </section>
+
+  <!-- EQUIPMENT & GEAR SECTION (3D MODEL CARDS) -->
+  <section id="gear" class="py-24 bg-slate-900/60 border-t border-slate-800/80 relative overflow-hidden">
+    <!-- Ambient Background Lighting -->
+    <div class="absolute top-1/2 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-[140px] -z-10"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px] -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-semibold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">Pro Setup</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">EQUIPMENT & GEAR</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Camera Systems · Lenses · Lighting · Audio · Stabilization</p>
+      </div>
+
+      <!-- GRID KARTU 3D EQUIPMENT -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+
+        <!-- 1. KAMERA: Sony A7C II -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Camera Body</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="Sony%20A7C%20II%20_%20.jpg" alt="Sony a7c mark ii" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition">Sony a7c mark ii</h3>
+          <p class="text-xs text-blue-400 font-semibold mt-0.5">Full Frame Sensor Camera</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Kamera mirrorless full-frame ringkas untuk perekaman video sinematik Full HD/4K dan fotografi profesional.</p>
+        </div>
+
+        <!-- 2. LENSA: Meike 35mm f/1.8 Pro -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Prime Lens</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="MEIKE%2035%20MM%20PRO%20.jpg" alt="Meike 35mm f1.8 Pro" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Meike 35mm f/1.8 Pro</h3>
+          <p class="text-xs text-indigo-400 font-semibold mt-0.5">Wide Prime Cinema & Photo Lens</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Lensa tajam dengan bukaan lebar f/1.8 yang menghasilkan bokeh halus dan performa memukau di kondisi minim cahaya.</p>
+        </div>
+
+        <!-- 3. LENSA: Sony FE 50mm f/1.8 -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Portrait Lens</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="SONY%20FE%2050MM.jpg" alt="Sony 50mm" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Sony FE 50mm f/1.8</h3>
+          <p class="text-xs text-indigo-400 font-semibold mt-0.5">Standard Prime Lens</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Lensa potret standar serbaguna untuk menangkap ekspresi manusia dan detail subjek dengan ketajaman presisi.</p>
+        </div>
+
+        <!-- 4. STABILIZER: DJI RS 3 Mini -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Gimbal Stabilizer</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="DJI%20-%20RS%203%20Mini%203-Axis%20Gimbal%20Stabilizer%20-%20.jpeg" alt="DJI RS 3 Mini" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">DJI RS 3 Mini</h3>
+          <p class="text-xs text-emerald-400 font-semibold mt-0.5">3-Axis Handheld Gimbal</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Stabilizer 3-axis super stabil untuk pergerakan kamera sinematik yang mulus saat pengambilan gambar langsung.</p>
+        </div>
+
+        <!-- 5. AUDIO: DJI Mic Mini 2 -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-purple-600/20 border border-purple-500/30 text-purple-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Wireless Audio</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="DJI%20MIC%20MINI%202.webp" alt="DJI Mic Mini 2" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition">DJI Mic Mini 2</h3>
+          <p class="text-xs text-purple-400 font-semibold mt-0.5">Wireless Microphone System</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Sistem mikrofon nirkabel portabel dengan kualitas perekaman suara jernih tanpa gangguan bising latar.</p>
+        </div>
+
+        <!-- 6. LIGHTING: INBEX IL-200Pro -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden">
+          <div class="absolute top-3 right-3 bg-amber-600/20 border border-amber-500/30 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Studio Light</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="INBEX%20200%20PRO.jpg" alt="INBEX IL-200Pro" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition">INBEX IL-200Pro</h3>
+          <p class="text-xs text-amber-400 font-semibold mt-0.5">High Brightness Studio Lamp (CRI ≥ 95+)</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Lampu studio bertenaga tinggi untuk penataan pencahayaan utama (Key Light) profesional saat foto maupun video.</p>
+        </div>
+
+        <!-- 7. FLASH: Godox V850 Mark III -->
+        <div class="gear-3d-card bg-slate-950/80 rounded-2xl p-6 border border-slate-800 relative group overflow-hidden lg:col-span-3 max-w-md mx-auto w-full">
+          <div class="absolute top-3 right-3 bg-amber-600/20 border border-amber-500/30 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Camera Flash</div>
+          <div class="w-full h-52 flex items-center justify-center p-4 bg-gradient-to-b from-slate-900/50 to-slate-950 rounded-xl mb-5">
+            <img src="GODOX_V850III.jpg" alt="Godox V850 III" class="gear-img-3d max-h-44 object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition text-center">Godox V850 III</h3>
+          <p class="text-xs text-amber-400 font-semibold mt-0.5 text-center">Li-Ion Speedlite Flash</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed text-center">Flash kamera baterai lithium berkecepatan tinggi untuk pencahayaan instan acara wedding dan pemotretan studio.</p>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <!-- KEAHLIAN -->
-  <section id="keahlian" class="py-20 bg-slate-900/50 border-t border-slate-800/50">
+  <section id="keahlian" class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-white">Keahlian Utama</h2>
