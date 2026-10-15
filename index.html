@@ -1,439 +1,379 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achmad Indra Musthofa | Portfolio</title>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind CSS (CDN untuk kemudahan edit dan publish) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Konfigurasi Tema Tailwind (Bisa di-edit warnanya) -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: '#0f172a',    // Background utama
-                        darker: '#020617',  // Background navbar/footer
-                        card: '#1e293b',    // Background kartu
-                        accent: '#38bdf8',  // Warna aksen (Biru muda cocok untuk teknologi/video)
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Animasi kustom untuk efek masuk */
-        .fade-in {
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Efek hover pada gambar portfolio */
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio - Ahcmad Indra Musthofa</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
 </head>
-<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-accent selection:text-white">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
 
-    <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo / Nama -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-white font-bold text-xl tracking-wider">AIM<span class="text-accent">.</span></a>
-                </div>
-                
-                <!-- Menu Desktop -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Beranda</a>
-                        <a href="#about" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Tentang</a>
-                        <a href="#skills" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Keahlian</a>
-                        <a href="#experience" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Pengalaman</a>
-                        <a href="#portfolio" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Portofolio</a>
-                        <a href="#contact" class="hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontak</a>
-                    </div>
-                </div>
+  <!-- ================= NAVIGASI ================= -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="text-xl font-extrabold tracking-wider text-white hover:text-blue-400 transition">
+        INDRA<span class="text-blue-500">.CREATIVE</span>
+      </a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+        <a href="#tentang" class="hover:text-blue-400 transition">Tentang</a>
+        <a href="#video" class="hover:text-blue-400 transition">Video & Film</a>
+        <a href="#fotografi" class="hover:text-blue-400 transition">Fotografi & Desain</a>
+        <a href="#keahlian" class="hover:text-blue-400 transition">Keahlian</a>
+        <a href="#kontak" class="hover:text-blue-400 transition">Kontak</a>
+      </div>
+      <!-- 📍 [LINK_WHATSAPP_HEADER] -->
+      <a href="https://wa.me/6283128597496" target="_blank" 
+         class="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-blue-600/30 transition duration-300">
+        <i class="fa-brands fa-whatsapp mr-2"></i>Hubungi Saya
+      </a>
+    </div>
+  </nav>
 
-                <!-- Tombol Menu Mobile -->
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu Mobile (Tersembunyi secara default) -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-darker border-b border-slate-800">
-                <a href="#home" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Beranda</a>
-                <a href="#about" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Tentang</a>
-                <a href="#skills" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Keahlian</a>
-                <a href="#experience" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Pengalaman</a>
-                <a href="#portfolio" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Portofolio</a>
-                <a href="#contact" class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium mobile-link">Kontak</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 fade-in relative overflow-hidden">
-        <!-- Dekorasi Background -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full mix-blend-screen filter blur-3xl opacity-30"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30"></div>
+  <!-- ================= HERO SECTION ================= -->
+  <section id="tentang" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden">
+    <!-- Background Glow Effect -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-accent font-semibold tracking-wide uppercase text-sm mb-4">Portofolio Profesional</h2>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                Achmad Indra Musthofa
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl text-slate-400 mb-10 font-light">
-                Videographer <span class="text-accent mx-2">|</span> Video Editor <span class="text-accent mx-2">|</span> Graphic Designer
+        <!-- Foto Profil / Avatar -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <div class="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+              
+              <!-- 📍 [FOTO_PROFIL] : GANTI URL GAMBAR DI DALAM SRC DI BAWAH INI -->
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" 
+                   alt="Ahcmad Indra Musthofa" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                   
+            </div>
+          </div>
+        </div>
+
+        <!-- Teks Perkenalan -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            Videographer & Visual Creator
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
+            Ahcmad Indra <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Musthofa</span>
+          </h1>
+          <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Kreator konten visual yang berpengalaman dalam videografi, penyuntingan video, fotografi, dan penataan pencahayaan. Berfokus pada penceritaan visual sinematik serta pemanfaatan teknologi AI generatif untuk karya yang estetis dan profesional.
+          </p>
+
+          <!-- Tombol Aksi -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#video" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/25 transition">
+              <i class="fa-solid fa-play mr-2 text-xs"></i>Lihat Portofolio
+            </a>
+            
+            <!-- 📍 [LINK_CV_PDF] : TEMPEL LINK FILE CV PDF DI BAWAH INI -->
+            <a href="#" target="_blank" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-6 py-3 rounded-xl transition">
+              <i class="fa-solid fa-file-arrow-down mr-2"></i>Unduh CV
+            </a>
+          </div>
+
+          <!-- Statistik / Sorotan -->
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-800/80">
+            <div>
+              <p class="text-2xl font-bold text-white">100%</p>
+              <p class="text-xs text-slate-500">Kualitas Visual</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-white">Full HD</p>
+              <p class="text-xs text-slate-500">Alpha & FX Render</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-white">AI-Powered</p>
+              <p class="text-xs text-slate-500">Workflow Kreatif</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KATEGORI 1: PORTOFOLIO VIDEO & FILM ================= -->
+  <section id="video" class="py-20 bg-slate-900/50 relative border-t border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white">Video & Film Pendek</h2>
+          <p class="text-slate-400 text-sm mt-2">Kumpulan proyek videografi, penyuntingan sinematik, dan dokumentasi acara.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- KARTU VIDEO 1 -->
+        <div class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 group hover:border-blue-500/50 transition duration-300">
+          <div class="relative aspect-video bg-slate-950 overflow-hidden">
+            
+            <!-- 📍 [VIDEO_1_THUMBNAIL] : URL GAMBAR THUMBNAIL VIDEO 1 -->
+            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800" 
+                 alt="Short Film GTK" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80">
+            
+            <!-- 📍 [VIDEO_1_LINK_PLAY] : TAUTAN YOUTUBE / DRIVE VIDEO 1 -->
+            <a href="https://www.youtube.com" target="_blank" 
+               class="absolute inset-0 flex items-center justify-center bg-slate-950/40 group-hover:bg-slate-950/20 transition">
+              <span class="w-14 h-14 rounded-full bg-blue-600/90 text-white flex items-center justify-center text-lg shadow-xl group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-play ml-1"></i>
+              </span>
+            </a>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Short Film / Naskah</span>
+            <!-- 📍 [VIDEO_1_JUDUL] -->
+            <h3 class="text-lg font-bold text-white mt-1">Kemerdekaan dalam Setiap Langkah Mengajar</h3>
+            <!-- 📍 [VIDEO_1_DESKRIPSI] -->
+            <p class="text-slate-400 text-sm mt-2 line-clamp-2">
+              Film pendek sinematik untuk Video Challenge GTK Madrasah. Pengambilan gambar berkonsep emosional dan realistis.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#portfolio" class="px-8 py-3 bg-accent text-darker font-semibold rounded-full hover:bg-white transition-colors duration-300 shadow-lg shadow-accent/20">
-                    Lihat Karya Saya
-                </a>
-                <a href="#contact" class="px-8 py-3 border border-slate-600 text-white font-semibold rounded-full hover:border-accent hover:text-accent transition-colors duration-300">
-                    Hubungi Saya
-                </a>
-            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- TENTANG & PENDIDIKAN SECTION -->
-    <section id="about" class="py-24 bg-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                
-                <!-- Tentang Saya -->
-                <div>
-                    <div class="flex items-center mb-6">
-                        <div class="h-1 w-12 bg-accent rounded"></div>
-                        <h2 class="ml-4 text-3xl font-bold text-white">Tentang Saya</h2>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed text-lg text-justify">
-                        Individu kreatif yang memiliki keahlian di bidang video editing, videografi, fotografi, dan desain grafis, serta mampu memanfaatkan berbagai teknologi AI untuk mendukung proses kreatif. 
-                        <br><br>
-                        Terampil dalam mengembangkan ide, mengolah konsep menjadi karya visual yang menarik, dan beradaptasi dengan cepat terhadap perkembangan teknologi untuk menghasilkan karya visual yang estetis dan inovatif.
-                    </p>
-                </div>
-
-                <!-- Pendidikan -->
-                <div class="bg-card p-8 rounded-2xl border border-slate-800 shadow-xl">
-                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-                        <i class="fas fa-graduation-cap text-accent mr-3"></i> Pendidikan
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="relative pl-6 border-l-2 border-slate-700">
-                            <div class="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1"></div>
-                            <h4 class="text-lg font-semibold text-white">MA AL KAUTSAR</h4>
-                            <p class="text-accent text-sm mb-1">Fokus: Dokumentasi</p>
-                        </div>
-                        <div class="relative pl-6 border-l-2 border-slate-700">
-                            <div class="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1"></div>
-                            <h4 class="text-lg font-semibold text-white">PONDOK PESANTREN AL KAUTSAR</h4>
-                            <p class="text-accent text-sm mb-1">Fokus: Desain Komunikasi Visual (DKV)</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- KEAHLIAN SECTION -->
-    <section id="skills" class="py-24 bg-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Keahlian Utama</h2>
-                <div class="h-1 w-20 bg-accent rounded mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Skill 1 -->
-                <div class="bg-card p-6 rounded-2xl border border-slate-800 hover:border-accent/50 hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 bg-dark rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
-                        <i class="fas fa-video text-2xl text-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Videografer</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Pengambilan gambar video, pengaturan komposisi presisi, dan penerapan teknik visual storytelling.</p>
-                </div>
-
-                <!-- Skill 2 -->
-                <div class="bg-card p-6 rounded-2xl border border-slate-800 hover:border-accent/50 hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 bg-dark rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
-                        <i class="fas fa-film text-2xl text-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Video Editor</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Penyuntingan video, color grading sinematik, audio editing, dan pemanfaatan AI untuk produksi visual.</p>
-                </div>
-
-                <!-- Skill 3 -->
-                <div class="bg-card p-6 rounded-2xl border border-slate-800 hover:border-accent/50 hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 bg-dark rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
-                        <i class="fas fa-camera text-2xl text-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Photo Editor</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Retouching foto tingkat lanjut, koreksi warna, dan penyempurnaan kualitas visual untuk berbagai media.</p>
-                </div>
-
-                <!-- Skill 4 -->
-                <div class="bg-card p-6 rounded-2xl border border-slate-800 hover:border-accent/50 hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-14 h-14 bg-dark rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
-                        <i class="fas fa-lightbulb text-2xl text-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Lighting Technician</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Penataan dan pengaturan pencahayaan dramatis untuk mendukung estetika visual foto maupun video.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- PENGALAMAN SECTION -->
-    <section id="experience" class="py-24 bg-dark">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mb-12 justify-center">
-                <h2 class="text-3xl font-bold text-white text-center">Pengalaman Proyek</h2>
-            </div>
-
-            <div class="space-y-8">
-                <!-- Exp 1 -->
-                <div class="bg-card p-8 rounded-2xl border border-slate-800 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"></div>
-                    <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Produksi Video & Dokumentasi Acara</h3>
-                    <ul class="list-disc list-outside ml-5 mt-4 text-slate-400 space-y-2 relative z-10">
-                        <li>Melakukan pengambilan gambar dan dokumentasi berbagai kegiatan serta acara.</li>
-                        <li>Mengedit video dengan memperhatikan alur cerita, transisi, audio, dan color grading.</li>
-                        <li>Menghasilkan konten visual yang menarik dan sesuai dengan kebutuhan publikasi.</li>
-                    </ul>
-                </div>
-
-                <!-- Exp 2 -->
-                <div class="bg-card p-8 rounded-2xl border border-slate-800 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"></div>
-                    <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Fotografi & Photo Editing</h3>
-                    <ul class="list-disc list-outside ml-5 mt-4 text-slate-400 space-y-2 relative z-10">
-                        <li>Melakukan pemotretan dengan memperhatikan komposisi, pencahayaan, dan momen kritis.</li>
-                        <li>Melakukan proses retouching, koreksi warna, serta penyempurnaan hasil foto secara profesional.</li>
-                    </ul>
-                </div>
-
-                <!-- Exp 3 -->
-                <div class="bg-card p-8 rounded-2xl border border-slate-800 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"></div>
-                    <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Desain Grafis & Produksi Konten Digital</h3>
-                    <ul class="list-disc list-outside ml-5 mt-4 text-slate-400 space-y-2 relative z-10">
-                        <li>Membuat desain visual berkualitas tinggi untuk kebutuhan publikasi dan media sosial.</li>
-                        <li>Memanfaatkan teknologi AI untuk mendukung pengembangan konsep dan efisiensi produksi konten visual.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO / GALERI SECTION -->
-    <section id="portfolio" class="py-24 bg-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Portfolio / Karya</h2>
-                <div class="h-1 w-20 bg-accent rounded mx-auto mb-6"></div>
-                <p class="text-slate-400 max-w-2xl mx-auto">Kumpulan karya visual, desain, dan video terpilih. (Galeri ini siap diisi dengan karya-karya terbaik Anda)</p>
-            </div>
-
-            <!-- Grid Galeri -->
-            <!-- CARA EDIT: Ganti URL di dalam tag <img> dengan link gambar/thumbnail video karya Anda -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer">
-                    <img src="https://placehold.co/800x600/1e293b/38bdf8?text=Karya+Video+1" alt="Portfolio 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-sm font-semibold mb-1">Video Editing</span>
-                        <h4 class="text-white text-xl font-bold">Dokumentasi Event</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer">
-                    <img src="https://placehold.co/800x600/1e293b/38bdf8?text=Karya+Desain+1" alt="Portfolio 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-sm font-semibold mb-1">Graphic Design</span>
-                        <h4 class="text-white text-xl font-bold">Social Media Campaign</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer">
-                    <img src="https://placehold.co/800x600/1e293b/38bdf8?text=Karya+Foto+1" alt="Portfolio 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-sm font-semibold mb-1">Photography</span>
-                        <h4 class="text-white text-xl font-bold">Portrait & Retouching</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer">
-                    <img src="https://placehold.co/800x600/1e293b/38bdf8?text=Karya+Video+2" alt="Portfolio 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-sm font-semibold mb-1">Videography</span>
-                        <h4 class="text-white text-xl font-bold">Cinematic Short</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 5 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer">
-                    <img src="https://placehold.co/800x600/1e293b/38bdf8?text=Karya+AI+1" alt="Portfolio 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-sm font-semibold mb-1">AI Generated</span>
-                        <h4 class="text-white text-xl font-bold">Concept Art</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 6 -->
-                <div class="portfolio-item relative group rounded-xl overflow-hidden aspect-video bg-card cursor-pointer flex items-center justify-center border-2 border-dashed border-slate-700 hover:border-accent transition-colors">
-                    <div class="text-center">
-                        <i class="fas fa-plus text-3xl text-slate-500 mb-2"></i>
-                        <p class="text-slate-400 font-medium text-sm">Tambah Karya Baru</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- KONTAK SECTION -->
-    <section id="contact" class="py-24 bg-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-card rounded-3xl p-8 md:p-12 border border-slate-800 shadow-2xl">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    
-                    <!-- Info Kontak -->
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-6">Mari Berkolaborasi!</h2>
-                        <p class="text-slate-400 mb-8 text-lg">
-                            Tertarik untuk bekerja sama, membutuhkan jasa dokumentasi, atau ingin mengobrol tentang proyek visual Anda? Jangan ragu untuk menghubungi saya.
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <a href="https://wa.me/6283128597496" target="_blank" class="flex items-center p-4 bg-dark rounded-xl border border-slate-700 hover:border-accent transition-colors group">
-                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
-                                    <i class="fab fa-whatsapp text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm text-slate-400">WhatsApp / Telepon</p>
-                                    <p class="text-white font-semibold text-lg">0831-2859-7496</p>
-                                </div>
-                            </a>
-                            
-                            <a href="mailto:musthofandra@gmail.com" class="flex items-center p-4 bg-dark rounded-xl border border-slate-700 hover:border-accent transition-colors group">
-                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
-                                    <i class="far fa-envelope text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm text-slate-400">Email</p>
-                                    <p class="text-white font-semibold text-lg">musthofandra@gmail.com</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Formulir Kontak (Tampilan Visual, perlu dihubungkan ke backend seperti Formspree jika ingin aktif) -->
-                    <div class="bg-dark p-8 rounded-2xl border border-slate-700">
-                        <form onsubmit="event.preventDefault(); alert('Formulir ini adalah template. Silakan hubungi via WhatsApp atau Email di sebelah kiri.');">
-                            <div class="mb-4">
-                                <label class="block text-sm font-medium text-slate-400 mb-2">Nama Lengkap</label>
-                                <input type="text" class="w-full bg-card border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" placeholder="Nama Anda" required>
-                            </div>
-                            <div class="mb-4">
-                                <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                                <input type="email" class="w-full bg-card border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" placeholder="email@anda.com" required>
-                            </div>
-                            <div class="mb-6">
-                                <label class="block text-sm font-medium text-slate-400 mb-2">Pesan</label>
-                                <textarea rows="4" class="w-full bg-card border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" placeholder="Ceritakan tentang proyek Anda..." required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-accent text-darker font-bold py-3 px-4 rounded-lg hover:bg-white transition-colors">
-                                Kirim Pesan
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-darker py-8 border-t border-slate-800 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-white font-bold text-2xl tracking-wider mb-4">AIM<span class="text-accent">.</span></h2>
-            <div class="flex justify-center space-x-6 mb-6">
-                <!-- Tambahkan link sosial media Anda di sini -->
-                <a href="#" class="text-slate-400 hover:text-accent text-xl transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-slate-400 hover:text-accent text-xl transition-colors"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="text-slate-400 hover:text-accent text-xl transition-colors"><i class="fab fa-behance"></i></a>
-            </div>
-            <p class="text-slate-500 text-sm">
-                &copy; <span id="year"></span> Achmad Indra Musthofa. All rights reserved.
+        <!-- KARTU VIDEO 2 -->
+        <div class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 group hover:border-blue-500/50 transition duration-300">
+          <div class="relative aspect-video bg-slate-950 overflow-hidden">
+            
+            <!-- 📍 [VIDEO_2_THUMBNAIL] : URL GAMBAR THUMBNAIL VIDEO 2 -->
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800" 
+                 alt="Animasi Logo SHOHIBUL KAUTSAR" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80">
+            
+            <!-- 📍 [VIDEO_2_LINK_PLAY] : TAUTAN YOUTUBE / DRIVE VIDEO 2 -->
+            <a href="https://www.youtube.com" target="_blank" 
+               class="absolute inset-0 flex items-center justify-center bg-slate-950/40 group-hover:bg-slate-950/20 transition">
+              <span class="w-14 h-14 rounded-full bg-blue-600/90 text-white flex items-center justify-center text-lg shadow-xl group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-play ml-1"></i>
+              </span>
+            </a>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Animasi & VFX</span>
+            <!-- 📍 [VIDEO_2_JUDUL] -->
+            <h3 class="text-lg font-bold text-white mt-1">Logo Animation & Drone Shot - Haul SHOHIBUL KAUTSAR</h3>
+            <!-- 📍 [VIDEO_2_DESKRIPSI] -->
+            <p class="text-slate-400 text-sm mt-2 line-clamp-2">
+              Animasi sekuens logo yang dipadukan dengan pergerakan kamera drone dan efek transisi bersih.
             </p>
+          </div>
         </div>
-    </footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // Set Tahun dinamis untuk footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        <!-- KARTU VIDEO 3 -->
+        <div class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 group hover:border-blue-500/50 transition duration-300">
+          <div class="relative aspect-video bg-slate-950 overflow-hidden">
+            
+            <!-- 📍 [VIDEO_3_THUMBNAIL] : URL GAMBAR THUMBNAIL VIDEO 3 -->
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800" 
+                 alt="Dokumentasi Acara" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80">
+            
+            <!-- 📍 [VIDEO_3_LINK_PLAY] : TAUTAN YOUTUBE / DRIVE VIDEO 3 -->
+            <a href="https://www.youtube.com" target="_blank" 
+               class="absolute inset-0 flex items-center justify-center bg-slate-950/40 group-hover:bg-slate-950/20 transition">
+              <span class="w-14 h-14 rounded-full bg-blue-600/90 text-white flex items-center justify-center text-lg shadow-xl group-hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-play ml-1"></i>
+              </span>
+            </a>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Dokumentasi Event</span>
+            <!-- 📍 [VIDEO_3_JUDUL] -->
+            <h3 class="text-lg font-bold text-white mt-1">Video Dokumentasi Acara & Event Highlight</h3>
+            <!-- 📍 [VIDEO_3_DESKRIPSI] -->
+            <p class="text-slate-400 text-sm mt-2 line-clamp-2">
+              Penyuntingan video dokumentasi dengan teknik color grading presisi dan ritme audio yang disesuaikan.
+            </p>
+          </div>
+        </div>
 
-        // Script untuk toggle menu mobile
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+      </div>
+    </div>
+  </section>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+  <!-- ================= KATEGORI 2: FOTOGRAFI & DESAIN GRAFIS ================= -->
+  <section id="fotografi" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-white">Fotografi & Desain Grafis</h2>
+        <p class="text-slate-400 text-sm mt-2">Koleksi hasil karya pemotretan, retouching foto, dan perancangan media cetak/digital.</p>
+      </div>
 
-        // Tutup menu mobile ketika link diklik
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        // Deteksi scroll untuk efek navbar transparan ke solid
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-                nav.classList.replace('bg-darker/90', 'bg-darker');
-            } else {
-                nav.classList.remove('shadow-lg');
-                nav.classList.replace('bg-darker', 'bg-darker/90');
-            }
-        });
-    </script>
+        <!-- FOTO 1 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 aspect-[4/5]">
+          <!-- 📍 [FOTO_1_URL] -->
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800" 
+               alt="Karya Fotografi 1" 
+               class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end">
+            <!-- 📍 [FOTO_1_JUDUL] -->
+            <h4 class="text-white font-bold text-base">Studio & Lighting Setup</h4>
+            <!-- 📍 [FOTO_1_KETERANGAN] -->
+            <p class="text-slate-300 text-xs mt-1">Penataan cahaya presisi & photo editing.</p>
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 aspect-[4/5]">
+          <!-- 📍 [FOTO_2_URL] -->
+          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80&w=800" 
+               alt="Karya Fotografi 2" 
+               class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end">
+            <!-- 📍 [FOTO_2_JUDUL] -->
+            <h4 class="text-white font-bold text-base">Dokumentasi Momen</h4>
+            <!-- 📍 [FOTO_2_KETERANGAN] -->
+            <p class="text-slate-300 text-xs mt-1">Pengambilan komposisi & momen alami.</p>
+          </div>
+        </div>
+
+        <!-- DESAIN 1 (BANNER) -->
+        <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 aspect-[4/5]">
+          <!-- 📍 [DESAIN_1_URL] -->
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800" 
+               alt="Desain Banner Dirgahayu RI" 
+               class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end">
+            <!-- 📍 [DESAIN_1_JUDUL] -->
+            <h4 class="text-white font-bold text-base">Large Format Banner Design</h4>
+            <!-- 📍 [DESAIN_1_KETERANGAN] -->
+            <p class="text-slate-300 text-xs mt-1">Banner 2000mm x 3000mm Dirgahayu RI.</p>
+          </div>
+        </div>
+
+        <!-- FOTO 4 / GENERATIVE AI -->
+        <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 aspect-[4/5]">
+          <!-- 📍 [FOTO_4_URL] -->
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" 
+               alt="AI Visual Concept" 
+               class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 p-6 flex flex-col justify-end">
+            <!-- 📍 [FOTO_4_JUDUL] -->
+            <h4 class="text-white font-bold text-base">AI Visual Generation</h4>
+            <!-- 📍 [FOTO_4_KETERANGAN] -->
+            <p class="text-slate-300 text-xs mt-1">Prompt engineering & konseptualisasi visual.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEAHLIAN & SPESIFIKASI TEKNIS ================= -->
+  <section id="keahlian" class="py-20 bg-slate-900/50 border-t border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-white">Keahlian & Spesifikasi</h2>
+        <p class="text-slate-400 text-sm mt-2">Kombinasi antara kemampuan teknis lapangan, eksekusi perangkat lunak, dan teknologi AI modern.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Videografer</h3>
+          <p class="text-slate-400 text-sm mt-2">Pengambilan gambar sinematik, gerakan kamera presisi, dan penyusunan komposisi visual.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Video Editor</h3>
+          <p class="text-slate-400 text-sm mt-2">Color grading, penyuntingan alur cerita, audio mixing, dan rendering Full HD ALPHA.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Lighting (Lightman)</h3>
+          <p class="text-slate-400 text-sm mt-2">Penataan skema pencahayaan studio/lokasi untuk meningkatkan estetika foto dan video.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">AI Visual & Prompting</h3>
+          <p class="text-slate-400 text-sm mt-2">Pemanfaatan AI (Kling AI, prompt engineering) untuk mendukung produksi konten visual cepat.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER & KONTAK ================= -->
+  <footer id="kontak" class="py-16 bg-slate-950 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white">Mari Bekerja Sama</h2>
+          <p class="text-slate-400 text-sm mt-2 max-w-md">
+            Siap membantu kebutuhan produksi video, pemotretan, penyuntingan visual, maupun konsultasi proyek kreatif Anda.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4 md:justify-end">
+          
+          <!-- 📍 [LINK_WHATSAPP] -->
+          <a href="https://wa.me/6283128597496" target="_blank" 
+             class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i>083128597496
+          </a>
+
+          <!-- 📍 [LINK_EMAIL] -->
+          <a href="mailto:musthofandra@gmail.com" 
+             class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2">
+            <i class="fa-solid fa-envelope text-lg"></i>musthofandra@gmail.com
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Tautan Media Sosial -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-slate-900 text-slate-500 text-xs">
+        <p>© 2026 Ahcmad Indra Musthofa. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0 text-slate-400 text-base">
+          
+          <!-- 📍 [LINK_INSTAGRAM] -->
+          <a href="https://instagram.com" target="_blank" class="hover:text-blue-400 transition">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <!-- 📍 [LINK_YOUTUBE] -->
+          <a href="https://youtube.com" target="_blank" class="hover:text-blue-400 transition">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+          <!-- 📍 [LINK_GITHUB] -->
+          <a href="https://github.com/musthofandra-rgb" target="_blank" class="hover:text-blue-400 transition">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
