@@ -41,8 +41,14 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+         <!-- Foto Profil Utama dengan ID hero-photo -->
+<img id="hero-photo" 
+     src="sampul%20utama.jpeg" 
+     alt="Ahcmad Indra Musthofa" 
+     class="w-full h-full object-cover transition-all duration-75 ease-out">
         
         <!-- Foto Profil Utama -->
+       
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
@@ -247,6 +253,24 @@
       </div>
     </div>
   </footer>
+<!-- Script Efek Blur saat Scroll -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const heroPhoto = document.getElementById('hero-photo');
+      if (!heroPhoto) return;
 
+      const scrollY = window.scrollY;
+      const maxScroll = 400; // Jarak scroll (dalam pixel) untuk mencapai blur maksimal
+      const maxBlur = 12;    // Tingkat blur maksimal (dalam pixel)
+
+      // Menghitung tingkat blur proporsional dengan jarak scroll
+      const blurValue = Math.min((scrollY / maxScroll) * maxBlur, maxBlur);
+      
+      heroPhoto.style.filter = `blur(${blurValue}px)`;
+    });
+  </script>
+
+</body>
+</html>
 </body>
 </html>
